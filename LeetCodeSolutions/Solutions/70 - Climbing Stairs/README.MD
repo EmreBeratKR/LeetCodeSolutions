@@ -31,3 +31,39 @@ Explanation: There are three ways to climb to the top.
 
 ### Constraints
 - ```1 <= n <= 45```
+
+<br>
+
+## My Solution
+
+```cs
+public int ClimbStairs(int n)
+{
+    var wayCount = 0;
+    var maxTwoCount = n / 2;
+
+    for (var i=0; i <= maxTwoCount; i++)
+    {
+        var sumOfTwos = 2 * i;
+        var onesCount = n - sumOfTwos;
+        var permutation = 1d;
+
+        for (var j=1; j <= i; j++)
+        {
+            permutation *= (onesCount + j);
+            permutation /= j;
+        }
+
+        wayCount += (int) permutation;
+    }
+
+    return wayCount;
+}
+```
+
+### Performance
+
+- Time Complexity: ```O(n^2)```
+- Space Complexity: ```O(1)```
+- Runtime: ```34ms``` ```Beats 53.29%```
+- Memory: ```25MB``` ```Beats 87.33%```
