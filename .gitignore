@@ -1,0 +1,12 @@
+# Mac OS
+*.DS_STORE
+
+# Rider
+*.idea/
+
+# Project
+*.sln
+*.csproj
+*/bin
+*/obj
+*/Properties
