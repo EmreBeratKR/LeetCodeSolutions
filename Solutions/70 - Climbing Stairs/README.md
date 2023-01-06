@@ -65,5 +65,3 @@ public int ClimbStairs(int n)
 
 - Time Complexity: ```O(n^2)```
 - Space Complexity: ```O(1)```
-- Runtime: ```34ms``` ```Beats 53.29%```
-- Memory: ```25MB``` ```Beats 87.33%```

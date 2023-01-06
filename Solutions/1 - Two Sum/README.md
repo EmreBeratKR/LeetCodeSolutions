@@ -67,5 +67,3 @@ public int[] TwoSum(int[] nums, int target)
 
 - Time Complexity: ```O(n)```
 - Space Complexity: ```O(n)```
-- Runtime: ```220ms``` ```Beats 62.27%```
-- Memory: ```43.1 MB``` ```Beats 58.8%```
