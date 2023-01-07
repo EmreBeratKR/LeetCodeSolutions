@@ -4,45 +4,24 @@ namespace EmreBeratKR.LeetCodeSolutions
     {
         public int CanCompleteCircuit(int[] gas, int[] cost) 
         {
-            ApplyCost(gas, cost);
+            var maxIndex = gas.Length - 1;
+            var fill = gas[maxIndex] - cost[maxIndex];
+            var maxFill = fill;
 
-            var fill = 0;
-            var station = 0;
-            var startingStation = station;
-
-            while (true)
+            for (int i = gas.Length - 2; i >= 0; i--)
             {
-                var currentStation = station % gas.Length;
-                var currentProfit = gas[currentStation];
+                fill += gas[i] - cost[i];
 
-                fill += currentProfit;
-
-                if (fill < 0)
+                if (fill > maxFill)
                 {
-                    fill = 0;
-                    station = startingStation + 1;
-                    startingStation = station;
-                
-                    if (startingStation >= gas.Length) return -1;
-
-                    continue;
+                    maxFill = fill;
+                    maxIndex = i;
                 }
-
-                station += 1;
-
-                if (station < startingStation + gas.Length) continue;
-
-                return startingStation;
             }
-        }
 
+            if (fill < 0) return -1;
 
-        private void ApplyCost(int[] gas, int[] cost)
-        {
-            for (var i=0; i < gas.Length; i++)
-            {
-                gas[i] -= cost[i];
-            }
+            return maxIndex;
         }
     }
 }
