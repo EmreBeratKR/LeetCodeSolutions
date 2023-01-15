@@ -7,27 +7,24 @@ namespace EmreBeratKR.LeetCodeSolutions
             if (nums.Length <= 1) return nums.Length;
 
             var unique = nums[0];
-            var i = 1;
+            var left = 1;
+            var right = 1;
 
-            for (var j = i; j < nums.Length; j++)
+            while (true)
             {
-                if (nums[j] == unique) continue;
+                if (right >= nums.Length) break;
 
-                unique = nums[j];
-                nums[i] = unique;
-
-                while (nums[j] == unique)
+                if (nums[right] != unique)
                 {
-                    j += 1;
-
-                    if (j >= nums.Length) break;
+                    unique = nums[right];
+                    nums[left] = unique;
+                    left += 1;
                 }
 
-                j -= 1;
-                i += 1;
+                right += 1;
             }
 
-            return i;
+            return left;
         }
     }
 }
