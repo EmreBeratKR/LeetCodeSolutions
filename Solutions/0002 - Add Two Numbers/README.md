@@ -103,3 +103,4 @@ public static class ListNodeExtensions
 
 - Time Complexity: ```O(n)```
 - Space Complexity: ```O(n)```
+- Auxiliary Space Complexity: ```O(n)```

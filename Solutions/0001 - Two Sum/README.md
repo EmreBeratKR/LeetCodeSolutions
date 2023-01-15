@@ -67,3 +67,4 @@ public int[] TwoSum(int[] nums, int target)
 
 - Time Complexity: ```O(n)```
 - Space Complexity: ```O(n)```
+- Auxiliary Space Complexity: ```O(n)```
