@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace LeetCodeSolutions.Solutions
+namespace EmreBeratKR.LeetCodeSolutions
 {
     public partial class Solution
     {
