@@ -50,6 +50,6 @@ return xor;
 
 ### Performance
 
-- Time Complexity: ```O(?)```
-- Space Complexity: ```O(?)```
-- Auxiliary Space Complexity: ```O(?)```
+- Time Complexity: ```O(n)```
+- Space Complexity: ```O(n)```
+- Auxiliary Space Complexity: ```O(1)```
