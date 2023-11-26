@@ -4,7 +4,14 @@ namespace EmreBeratKR.LeetCodeSolutions
     {
         public int SingleNumber(int[] nums)
         {
-            return default;
+            var xor = 0;
+
+            for (var i = 0; i < nums.Length; i++)
+            {
+                xor ^= nums[i];
+            }
+
+            return xor;
         }
     }
 }

@@ -38,10 +38,14 @@ Output: 1
 ## My Solution
 
 ```cs
-public int SingleNumber(int[] nums)
+var xor = 0;
+
+for (var i = 0; i < nums.Length; i++)
 {
-    return default;
+    xor ^= nums[i];
 }
+
+return xor;
 ```
 
 ### Performance
