@@ -37,12 +37,27 @@ Output: 2
 ```cs
 public int MajorityElement(int[] nums)
 {
-    return default;
+    var candidate = int.MinValue;
+    var count = 0;
+
+    for (var i = 0; i < nums.Length; i++)
+    {
+        if (count == 0)
+        {
+            candidate = nums[i];
+            count = 1;
+            continue;
+        }
+
+        count += candidate == nums[i] ? 1 : -1;
+    }
+
+    return candidate;
 }
 ```
 
 ### Performance
 
-- Time Complexity: ```O(?)```
-- Space Complexity: ```O(?)```
-- Auxiliary Space Complexity: ```O(?)```
+- Time Complexity: ```O(n)```
+- Space Complexity: ```O(n)```
+- Auxiliary Space Complexity: ```O(1)```
