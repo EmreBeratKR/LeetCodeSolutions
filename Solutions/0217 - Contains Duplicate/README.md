@@ -33,20 +33,67 @@ Output: true
 - `-10^9 <= nums[i] <= 10^9`
 
 
-**Follow-up:** Could you solve the problem in linear time and in `O(1)` space?
+## My Solution(s)
 
+### 1) Brute Force
 
-## My Solution
+- Time Complexity: ```O(n^2)```
+- Space Complexity: ```O(n)```
+- Auxiliary Space Complexity: ```O(1)```
 
 ```cs
-public bool ContainsDuplicate(int[] nums) 
+private bool ContainsDuplicateWithBruteForce(int[] nums)
 {
-    return default;
+    for (var i = 0; i < nums.Length - 1; i++)
+    {
+        for (var j = i + 1; j < nums.Length; j++)
+        {
+            if (nums[i] == nums[j]) return true;
+        }
+    }
+
+    return false;
 }
 ```
 
-### Performance
+### 2) Sorting
 
-- Time Complexity: ```O(?)```
-- Space Complexity: ```O(?)```
-- Auxiliary Space Complexity: ```O(?)```
+- Time Complexity: ```O(nlogn)```
+- Space Complexity: ```O(n)```
+- Auxiliary Space Complexity: ```O(1)```
+
+```cs
+private bool ContainsDuplicateWithSorting(int[] nums)
+{
+    Array.Sort(nums);
+
+    for (var i = 0; i < nums.Length - 1; i++)
+    {
+        if (nums[i] == nums[i + 1]) return true;
+    }
+
+    return false;
+}
+```
+
+### 3) HashSet
+
+- Time Complexity: ```O(n)```
+- Space Complexity: ```O(n)```
+- Auxiliary Space Complexity: ```O(n)```
+
+```cs
+private bool ContainsDuplicateWithHashSet(int[] nums)
+{
+    var hashSet = new HashSet<int>();
+
+    for (var i = 0; i < nums.Length; i++)
+    {
+        if (hashSet.Contains(nums[i])) return true;
+
+        hashSet.Add(nums[i]);
+    }
+
+    return false;
+}
+```
