@@ -31,7 +31,6 @@ Output: 2
 
 **Follow-up:** Could you solve the problem in linear time and in `O(1)` space?
 
-
 ## My Solution
 
 ```cs

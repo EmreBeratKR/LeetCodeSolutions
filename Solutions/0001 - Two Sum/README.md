@@ -37,34 +37,55 @@ Output: [0,1]
 - ```-10^9 <= target <= 10^9```
 - **Only one valid answer exists.**
 
-<br>
+**Follow-up:** Can you come up with an algorithm that is less than `O(n^2)` time complexity?
 
-## My Solution
+## My Solution(s)
+
+### 1) Brute Force
+
+- Time Complexity: ```O(n^2)```
+- Space Complexity: ```O(n)```
+- Auxiliary Space Complexity: ```O(1)```
 
 ```cs
-public int[] TwoSum(int[] nums, int target)
+private int[] TwoSumWithBruteForce(int[] nums, int target)
+{
+    for (var i = 0; i < nums.Length - 1; i++)
+    {
+        for (var j = i + 1; j < nums.Length; j++)
+        {
+            if (nums[i] + nums[j] == target) return new []{i, j};
+        }
+    }
+    
+    return new int[]{};
+}
+```
+
+### 2) Dictionary
+
+- Time Complexity: ```O(n)```
+- Space Complexity: ```O(n)```
+- Auxiliary Space Complexity: ```O(n)```
+
+```cs
+private int[] TwoSumWithDictionary(int[] nums, int target)
 {
     var pairs = new Dictionary<int, int>();
-    
+
     for (var i = 0; i < nums.Length; i++)
     {
         var number = nums[i];
         var remainder = target - number;
 
-        if (pairs.ContainsKey(remainder))
+        if (pairs.TryGetValue(remainder, out var pair))
         {
-            return new int[] {pairs[remainder], i};
+            return new []{pair, i};
         }
 
         pairs[number] = i;
     }
 
-    return new int[] { };
+    return new int[]{};
 }
 ```
-
-### Performance
-
-- Time Complexity: ```O(n)```
-- Space Complexity: ```O(n)```
-- Auxiliary Space Complexity: ```O(n)```
