@@ -43,9 +43,17 @@ Output: [0,1]
 
 ### 1) Brute Force
 
+#### Complexity:
+
 - Time Complexity: ```O(n^2)```
 - Space Complexity: ```O(n)```
 - Auxiliary Space Complexity: ```O(1)```
+
+#### Explanation:
+
+- Check every cases.
+- Return true if any of these cases satisfies our conditions.
+- Otherwise return false.
 
 ```cs
 private int[] TwoSumWithBruteForce(int[] nums, int target)
@@ -64,9 +72,19 @@ private int[] TwoSumWithBruteForce(int[] nums, int target)
 
 ### 2) Dictionary
 
+#### Complexity:
+
 - Time Complexity: ```O(n)```
 - Space Complexity: ```O(n)```
 - Auxiliary Space Complexity: ```O(n)```
+
+#### Explanation:
+
+- Iterate over every element in `nums`.
+- Calculate `remainder` by subtracting `nums[i]` from `target`.
+- If we have seen `remainder` before, return those two indices together.
+- Otherwise we store `remainder` with its index inside the dictionary.
+- If we never return inside the loop, we return an empty array.
 
 ```cs
 private int[] TwoSumWithDictionary(int[] nums, int target)
