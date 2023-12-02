@@ -44,21 +44,55 @@ Explanation: The ranges are:
 
 ## My Solution(s)
 
-### 1) ???
+### 1) Sliding Window
 
 #### Complexity:
 
-- Time Complexity: ```O(?)```
-- Space Complexity: ```O(?)```
-- Auxiliary Space Complexity: ```O(?)```
+- Time Complexity: ```O(n)```
+- Space Complexity: ```O(n)```
+- Auxiliary Space Complexity: ```O(n)```
 
 #### Explanation:
 
-- ???
+- Create an empty string list named `ranges`.
+- if `nums` is **empty** return `ranges` **immediately**.
+- Else create range `[a,b]` as `[0,1]`.
+- if `b >= nums.Length` add `[a,b]` to `ranges` and break the loop.
+- if **index difference** is equal to **value difference**, increment `b` and continue.
+- Else add range `[a,b]` to `ranges` and set value `a` as `b`, increment b and continue.
+- After exited the loop return `ranges`.
 
 ```cs
-public IList<string> SummaryRanges(int[] nums) 
+private IList<string> SummaryRangesWithSlidingWindow(int[] nums)
 {
-    return default;
+    var ranges = new List<string>();
+
+    if (nums.Length <= 0) return ranges;
+    
+    var a = 0;
+
+    for (var b = 1; ; b++)
+    {
+        if (b >= nums.Length)
+        {
+            ranges.Add(ToRange(nums, a, b - 1));
+            break;
+        }
+        
+        var deltaIndex = b - a;
+        var deltaValue = nums[b] - nums[a];
+            
+        if (deltaIndex == deltaValue) continue;
+
+        ranges.Add(ToRange(nums, a, b - 1));
+        a = b;
+    }
+
+    return ranges;
+}
+
+private string ToRange(int[] nums, int a, int b)
+{
+    return a == b ? nums[a].ToString() : $"{nums[a]}->{nums[b]}";
 }
 ```
