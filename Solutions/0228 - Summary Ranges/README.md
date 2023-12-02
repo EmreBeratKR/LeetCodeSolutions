@@ -37,7 +37,7 @@ Explanation: The ranges are:
 ### Constraints
 
 - `0 <= nums.length <= 20`
-- `-23^1 <= nums[i] <= 23^1 - 1`
+- `-2^31 <= nums[i] <= 2^31 - 1`
 - All the values of `nums` are **unique**.
 - `nums` is sorted in ascending order.
 
