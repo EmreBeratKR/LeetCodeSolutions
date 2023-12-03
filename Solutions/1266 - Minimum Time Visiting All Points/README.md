@@ -43,21 +43,36 @@ Output: 5
 
 ## My Solution(s)
 
-### 1) ???
+### 1) Sum of greater axises
 
 #### Complexity:
 
-- Time Complexity: ```O(?)```
-- Space Complexity: ```O(?)```
-- Auxiliary Space Complexity: ```O(?)```
+- Time Complexity: ```O(n)```
+- Space Complexity: ```O(n)```
+- Auxiliary Space Complexity: ```O(1)```
 
 #### Explanation:
 
-- ???
+- Iterate over all points except the last point.
+- Calculate the absolute differences for each axis.
+- The axis with greater absolute distance is the least time we need to move from the current point to the next point.
+- Return the sum of these time values.
 
 ```cs
 public int MinTimeToVisitAllPoints(int[][] points)
 {
-    return default;
+    var time = 0;
+    
+    for (var i = 0; i < points.Length - 1; i++)
+    {
+        var a = points[i];
+        var b = points[i + 1];
+        var deltaX = Math.Abs(a[0] - b[0]);
+        var deltaY = Math.Abs(a[1] - b[1]);
+
+        time += Math.Max(deltaX, deltaY);
+    }
+
+    return time;
 }
 ```
