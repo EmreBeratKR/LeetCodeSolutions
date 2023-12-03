@@ -42,21 +42,31 @@ Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0
 
 ## My Solution(s)
 
-### 1) ???
+### 1) Gauss Sum
 
 #### Complexity:
 
-- Time Complexity: ```O(?)```
-- Space Complexity: ```O(?)```
-- Auxiliary Space Complexity: ```O(?)```
+- Time Complexity: ```O(n)```
+- Space Complexity: ```O(n)```
+- Auxiliary Space Complexity: ```O(1)```
 
 #### Explanation:
 
-- ???
+- Calculate sum of range the range `[0,n]` by **Gauss Sum** formula.
+- Gauss Sum formula: `n * (n + 1) / 2`
+- Subtract each element from the sum.
+- Return the sum which equals to missing number.
 
 ```cs
-public int MissingNumber(int[] nums)
+private int MissingNumberWithGaussSum(int[] nums)
 {
-    return default;
+    var gaussSum = (nums.Length + 1) * nums.Length / 2;
+
+    for (var i = 0; i < nums.Length; i++)
+    {
+        gaussSum -= nums[i];
+    }
+
+    return gaussSum;
 }
 ```
