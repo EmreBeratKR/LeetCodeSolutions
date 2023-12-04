@@ -45,7 +45,7 @@ Explanation: No substring of length 3 consists of only one unique digit. Therefo
 
 ## My Solution(s)
 
-### 1) ???
+### 1) Candidate Digit
 
 #### Complexity:
 
