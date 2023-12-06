@@ -38,21 +38,69 @@ Explanation: After the 20th day, the total is (1 + 2 + 3 + 4 + 5 + 6 + 7) + (2 +
 
 ## My Solution(s)
 
-### 1) ???
+### 1) Loop
 
 #### Complexity:
 
-- Time Complexity: ```O(?)```
-- Space Complexity: ```O(?)```
-- Auxiliary Space Complexity: ```O(?)```
+- Time Complexity: ```O(n)```
+- Space Complexity: ```O(1)```
+- Auxiliary Space Complexity: ```O(1)```
 
 #### Explanation:
 
-- ???
+- Loop until day counter reaches n.
+- Increment money by current day's number.
+- Also increment money by week index;
+- Increment day by 1.
+- If day is multiple of 7 increment week.
+- Return money counter.
 
 ```cs
-public int TotalMoney(int n) 
+private int TotalMoneyWithLoop(int n)
 {
-    return default;    
+    var week = 0;
+    var day = 0;
+    var money = 0;
+
+    while (day < n)
+    {
+        money += (day % 7) + week + 1;
+
+        day += 1;
+
+        if (day % 7 != 0) continue;
+    
+        week += 1;
+    }
+
+    return money; 
+}
+```
+
+### 2) Math
+
+#### Complexity:
+
+- Time Complexity: ```O(1)```
+- Space Complexity: ```O(1)```
+- Auxiliary Space Complexity: ```O(1)```
+
+#### Explanation:
+
+- Calculate whole week count by dividing n by 7 as integer division operation.
+- Calculate extra day count by subtracting whole week count times 7 from n.
+- Calculate last week's money sum by using gauss sum.
+- Calculate whole week's money sum by using gauss sum.
+- Return last week's money sum + whole week's money sum.
+
+```cs
+private int TotalMoneyWithMath(int n)
+{
+    var week = n / 7;
+    var day = n - week * 7;
+    var lastWeekSum = (day * day + day) / 2 + day * week;
+    var wholeWeeksSum = (56 + 7 * (week - 1)) * week / 2;
+
+    return wholeWeeksSum + lastWeekSum;
 }
 ```
