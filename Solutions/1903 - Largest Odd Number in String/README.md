@@ -39,21 +39,42 @@ Explanation: "35427" is already an odd number.
 
 ## My Solution(s)
 
-### 1) ???
+### 1) Ones Place
 
 #### Complexity:
 
-- Time Complexity: ```O(?)```
-- Space Complexity: ```O(?)```
-- Auxiliary Space Complexity: ```O(?)```
+- Time Complexity: ```O(n)```
+- Space Complexity: ```O(n)```
+- Auxiliary Space Complexity: ```O(1)```
 
 #### Explanation:
 
-- ???
+- Iterate over all characters from the ending of `num`.
+- If current character `num[i]` is an odd digit return the substring as `[0, i + 1]`.
+- If we haven't found any odd digit return empty string.
 
 ```cs
 public string LargestOddNumber(string num)
 {
-    return default;
+    for (var i = num.Length - 1; i >= 0; i--)
+    {
+        if (IsOddChar(num[i])) return num.Substring(0, i + 1);
+    }
+
+    return "";
+}
+
+
+private bool IsOddChar(char digit)
+{
+    return digit switch
+    {
+        '1' => true,
+        '3' => true,
+        '5' => true,
+        '7' => true,
+        '9' => true,
+        _ => false
+    };
 }
 ```
