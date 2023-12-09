@@ -60,7 +60,7 @@ Explanation: No substring of length 3 consists of only one unique digit. Therefo
 - And length is reset to 1 as our candidate is changed.
 - Else if current digit is equal to current candidate increment length by 1.
 - And after the incrementation if `length >= 3` then its a **Good Integer**.
-- If this **Good Integer** is larger than our current **best Good Intege**r update it.
+- If this **Good Integer** is larger than our current **best Good Integer** update it.
 - Else just ignore it.
 - If we found any **Good Integer**, we return it by checking if `best >= 0`.
 
